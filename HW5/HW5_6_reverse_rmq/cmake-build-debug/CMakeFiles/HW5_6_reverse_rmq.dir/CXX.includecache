@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/khurshudov/Desktop/MADE/Algo2/HW/HW5/HW5_6_reverse_rmq/main.cpp
+string
+-
+fstream
+-
+iostream
+-
+set
+-
+algorithm
+-
+
