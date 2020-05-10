@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800) (preloaded format=pdflatex 2018.9.23)  19 APR 2020 01:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800) (preloaded format=pdflatex 2018.9.23)  10 MAY 2020 15:48
 entering extended mode
 **./HW7_all.tex
 (HW7_all.tex
@@ -523,8 +523,13 @@ Package graphics Info: Driver file: pdftex.def on input line 99.
 \Gin@req@width=\dimen118
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 12.
+ (HW7_all.aux
+LaTeX Font Info:    Try loading font information for T2A+cmr on input line 20.
 
-No file HW7_all.aux.
+("/Users/khurshudov/Library/Application Support/MiKTeX/texmfs/install/tex/latex
+/cyrillic/t2acmr.fd"
+File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
+))
 \openout1 = `HW7_all.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
@@ -540,12 +545,6 @@ LaTeX Font Info:    ... okay on input line 14.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
 LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 14.
-LaTeX Font Info:    Try loading font information for T2A+cmr on input line 14.
-
-("/Users/khurshudov/Library/Application Support/MiKTeX/texmfs/install/tex/latex
-/cyrillic/t2acmr.fd"
-File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
-)
 LaTeX Font Info:    ... okay on input line 14.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
@@ -598,16 +597,10 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 14.
 LaTeX Info: Redefining \pageref on input line 14.
 LaTeX Info: Redefining \nameref on input line 14.
+ (HW7_all.out) (HW7_all.out)
 \@outlinefile=\write3
 \openout3 = `HW7_all.out'.
 
-
-Overfull \hbox (68.81764pt too wide) in paragraph at lines 33--34
-\T2A/cmr/m/n/10 значит хотя бы 1 истинна, то есть решена задача $\OT1/cmr/m/n/1
-0 3\OML/cmm/m/it/10 SAT$\T2A/cmr/m/n/10 , а значит допущение($\OML/cmm/m/it/10 
-MAX\OT1/cmr/m/n/10 3\OML/cmm/m/it/10 SAT <[]
- []
-
 Package babel Info: Redefining russian shorthand "|
 (babel)             in language  on input line 34.
 Package babel Info: Redefining russian shorthand "~
@@ -616,7 +609,7 @@ Package babel Info: Redefining russian shorthand "|
 (babel)             in language  on input line 34.
 Package babel Info: Redefining russian shorthand "~
 (babel)             in language  on input line 34.
-[1
+ [1
 
 {/Users/khurshudov/Library/Application Support/MiKTeX/texmfs/data/pdftex/config
 /pdftex.map}]
@@ -753,35 +746,42 @@ Overfull \hbox (10.3848pt too wide) in paragraph at lines 110--123
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 128.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 128.
+(babel)             in language  on input line 126.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 128.
+(babel)             in language  on input line 126.
 Package babel Info: Redefining russian shorthand "|
-(babel)             in language  on input line 128.
+(babel)             in language  on input line 126.
 Package babel Info: Redefining russian shorthand "~
-(babel)             in language  on input line 128.
+(babel)             in language  on input line 126.
 [6]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 128.
+Overfull \hbox (1.44218pt too wide) in paragraph at lines 130--131
+\T2A/cmr/m/n/10 Требуется разбить множество вершин неориентированного графа $\O
+ML/cmm/m/it/10 G \OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 V; E\OT1/cmr/m/n/10 )$
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 139.
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 139.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 139.
+Package babel Info: Redefining russian shorthand "|
+(babel)             in language  on input line 139.
+Package babel Info: Redefining russian shorthand "~
+(babel)             in language  on input line 139.
+[7]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 139.
  (HW7_all.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 128.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 128.
-
-
-Package rerunfilecheck Warning: File `HW7_all.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `HW7_all.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 128.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 139.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 139.
+Package rerunfilecheck Info: File `HW7_all.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 139.
  ) 
 Here is how much of TeX's memory you used:
- 10362 strings out of 494891
- 143894 string characters out of 3176685
- 223027 words of memory out of 3000000
+ 10372 strings out of 494891
+ 144203 string characters out of 3176685
+ 223131 words of memory out of 3000000
  13893 multiletter control sequences out of 15000+200000
  8953 words of font info for 22 fonts, out of 3000000 for 9000
  0 hyphenation exceptions out of 8191
@@ -803,9 +803,9 @@ y/Application Support/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmr7
 .pfb></Users/khurshudov/Library/Application Support/MiKTeX/texmfs/install/fonts
 /type1/public/amsfonts/cm/cmsy10.pfb></Users/khurshudov/Library/Application Sup
 port/MiKTeX/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on HW7_all.pdf (6 pages, 1237193 bytes).
+Output written on HW7_all.pdf (7 pages, 1240789 bytes).
 PDF statistics:
- 238 PDF objects out of 1000 (max. 8388607)
- 38 named destinations out of 1000 (max. 500000)
+ 249 PDF objects out of 1000 (max. 8388607)
+ 42 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
