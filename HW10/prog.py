@@ -1,80 +1,61 @@
+from pyparsing import infixNotation, opAssoc, Keyword, Word, alphas, ParserElement, oneOf, pyparsing_common
+from classes import *
 import sys
-from pyparsing import pyparsing_common, ParserElement, Word, alphas, Literal, oneOf, infixNotation, opAssoc
 
-def make_oper(v1, op, v2):
-    if op == '+':
-        return v1 + v2
-    if op == '-':
-        return v1 - v2
-    if op == '*':
-        return v1 * v2
-    if op == '/':
-        if v2 == 0:
-            raise ZeroDivisionError("Division by zero, {} / {}".format(v1, v2))
-        return v1 / v2
-
-def calculate(arr):
-    if type(arr) == type(2):
-        return arr
-    if type(arr) == type('s'):
-        if arr not in variables:
-            raise BaseException("Variable {} is not defined".format(arr))
-        return variables[arr]
-        
-    res = calculate(arr[0])
-    i = 1
-    while i < len(arr):
-        op = arr[i]
-        i += 1
-        val = calculate(arr[i])
-        i += 1
-        res = make_oper(res, op, val)
-    return res
+EPS = 1e-5
 
 ParserElement.enablePackrat()
-sys.setrecursionlimit(3000)
 
-integer = pyparsing_common.integer # helps to parse unsigned int
-variable = Word(alphas, exact=1) # helps to parse variable (should consist)
-operand = integer | variable # define operand as integer | variable
+TRUE = Keyword("True")
+FALSE = Keyword("False")
+integer = pyparsing_common.integer
+variable = Word(alphas, exact=1)
 
-multop = oneOf("* /") # define alternative operators
-plusop = oneOf("+ -") # define alternative operators
+operand = TRUE | FALSE | integer | variable
+operand.setParseAction(Operand)
 
-# define expression which consists of operands and operators
-# infixNotation = notations we use every day
-expr = infixNotation(
-    operand,
-    [
-        (multop, 2, opAssoc.LEFT), # define operator sign, ammount of operands, assoc
-        (plusop, 2, opAssoc.LEFT),
-    ]
-)
-
-# define expression for parsing start of string 'A = '
-start_expr = infixNotation(variable,[('=', 1, opAssoc.LEFT)]) 
-
-
-test = [
-    "A = 9 - 2",
-    "B = 1 + A - 4 * 3",
-    "D = 33",
-    "C = 8 / 4 / 2",
-    "A = A * (5 + 5)",
-    "2 = 2",
-    "Q = E * E",
+operators = [
+    ("!", 1, opAssoc.RIGHT, BoolNot),
+    ("&", 2, opAssoc.LEFT, BoolAnd),
+    ("^", 2, opAssoc.LEFT, BoolXOR),
+    ("|", 2, opAssoc.LEFT, BoolOr),
+    ("/", 2, opAssoc.LEFT, IntDiv),
+    ("*", 2, opAssoc.LEFT, IntMult),
+    ("-", 2, opAssoc.LEFT, IntMinus),        
+    ("+", 2, opAssoc.LEFT, IntPlus),
 ]
 
-variables = {}
-        
-for t in test:
-    try:
-        start = t[:t.find('=') + 1]
-        var, eq = start_expr.parseString(start, parseAll=True)[0]
+expr = variable + '=' + infixNotation(operand, operators)
 
-        t = t[t.find('=') + 1:]
-        variables[var] = calculate(expr.parseString(t, parseAll=True)[0])
-        print(var, '=', variables[var])
-        
+variables_dict = {}
+
+tests = []
+print(sys.argv)
+with open(sys.argv[-1])  as f:
+    lines = f.readlines()
+    for line in lines:
+        sp_l = line.split(',')
+        tests.append((sp_l[0], eval(sp_l[1])))
+
+cnt_fail = 0
+cnt_err = 0
+cnt_correct = 0
+for t, expected in tests:
+    try:
+        var, _, res = expr.parseString(t, parseAll=True)
+        success = "PASS" if expected - EPS< res.calc() < expected + EPS else "FAIL"
+        variables_dict[var] = res.calc()
+        if success == "FAIL":
+            cnt_fail += 1
+            print(success, "\ntest:", t, "\nparsed: ", res, "=", res.calc(), "\ncorrect =", expected)
+        else:
+            cnt_correct += 1
     except BaseException as e:
-        print(e)
+        cnt_err += 1
+        print("ERROR", e)
+        print("test:", t)
+        print("_" * 50)
+        
+print('Всего тестов: {}, из них: \n\tправильных: {}, \
+\n\tс ошибкой при вычислении: {}, \n\tс ошибкой при парсинге: {}' \
+      .format(len(tests), cnt_correct, cnt_fail, cnt_err))
