@@ -13,12 +13,21 @@
 2. Expr --> Sum
 3. Sum --> ProductSum'
 4. Sum' --> [+|-]Sum | $\varepsilon$
-5. Product --> TermProduct'
+5. Product --> OrProduct'
 6. Product' --> [*|/]Product | $\varepsilon$
-7. Term -->(Expr) | Number | Variable
+7. Or --> XorOr'
+8. Or' --> "|"Or | $\varepsilon$
+9. Xor --> AndmXor'
+10. Xor' --> ^Xor | $\varepsilon$
+11. And --> TermAnd'
+12. And' --> &And | $\varepsilon$
+13. Term --> InvTerm
+14. Inv --> ! | $\varepsilon$
+15. Term --> (Expr) | Number | Variable | Bool
 
 * Number: \d+ (В этой библиотеке во время парсинга применяется int())
 * Variable: [A-Za-z]
+* Bool: True|False
 
 1. Корректным названием переменной является большая или маленькая латинская буква.
 2. Перезаписывать переменные разрешается
